@@ -1,0 +1,7 @@
+# Services
+services:
+  nodered:
+    image: nodered/node-red:latest
+    pvc:
+      size: 100Mi
+      accessModes: "ReadWriteOnce"

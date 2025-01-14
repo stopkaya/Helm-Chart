@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-nodered-pvc
+  labels:
+    app: {{ .Release.Name }}-nodered
+spec:
+  accessModes:
+    - {{ .Values.services.nodered.pvc.accessModes | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.services.nodered.pvc.size | quote }}
