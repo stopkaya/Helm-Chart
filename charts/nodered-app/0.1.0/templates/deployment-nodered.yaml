@@ -24,8 +24,9 @@ spec:
         - name: nodered-data
           mountPath: /data
         securityContext:
-          runAsUser: 1000
-          runAsGroup: 1000
+          runAsUser: 0  # Run the container as root (UID 0)
+          runAsGroup: 0  # Set the group to root (GID 0)
+          allowPrivilegeEscalation: true  # Allow privilege escalation if needed
       volumes:
       - name: nodered-data
         persistentVolumeClaim:
